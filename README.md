@@ -20,10 +20,12 @@ crnn识别网络比较敏感，不同的字体、视场角、环境等影响较�
 
 # 改进的位置
 
-改进之前的网络
+## 改进之前的网络
 维度变化：N * 128 * 1 * 280 ->Transpose -> 280 * 1 * N * 128 -> Reshape -> 280 * N * 128 -> InnerProduct -> 280 * N * 5990 -> CTCGreedyDecoder
+
 <img width="768" alt="lQLPDhrZRxVgNtnNA8PNBgCwY04orhBAFkEBkTsEngAjAA_1536_963" src="https://user-images.githubusercontent.com/57212603/140701049-ffe641c7-bddd-4061-a4ec-20b1d9afba59.png">
 
-改进之后的网络
+## 改进之后的网络
 维度变化：N * 128 * 1 * 280 ->1 * 1conv -> N * 5990 * 1 * 280 -> Reshape -> N * 5990 * 280 -> Transpose -> 280 * N * 5990 -> CTCGreedyDecoder
+
 <img width="768" alt="lQLPDhrZRke9YwTNA8PNBgCwkZ89jOr1SJ8BkTmzLEBYAA_1536_963" src="https://user-images.githubusercontent.com/57212603/140700934-aca9d55a-5d47-4991-b3af-20890fd29f5d.png">
