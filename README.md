@@ -1,5 +1,7 @@
+
+
 # Ocr-Character-Detection
-利用centernet定位和crnn识别网络,识别护照上的两行机读码,提取出关键信息,并在海思平台上优化和部署.此工程只给出了海思上部署代码,由于涉及到保密问题,部分权重文件为empty.
+利用centernet定位和crnn识别网络,识别护照上的两行机读码,提取出关键信息,并在海思平台上优化和部署.此工程只给出了海思上部署代码,由于涉及到保密问题,部分权重文件为empty. 部署前请确保检测模型`centernet_inst_3519A_for_nnie.wk`、识别模型`crnn_inst_3519A_for_nnie.wk`及标签文件`char_std_39.txt`已放置于`./data/wk/`目录下。
 # centernet pytorch训练
 根据[centernet官方工程](https://github.com/Duankaiwen/CenterNet)训练数据,再利用[模型转换工具](https://github.com/xxradon/PytorchToCaffe),将pytorch模型转成caffe模型.检测机读码上的四个角字符,共四个框.再通过后处理截图,旋转缩放到crnn网络所需的数据要求.
 # crnn caffe训练
